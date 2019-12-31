@@ -23,7 +23,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  bool isSelected = false;
+  bool isSelected = true;
 
   @override
   Widget build(BuildContext context) {
@@ -42,35 +42,29 @@ class _MyHomePageState extends State<MyHomePage> {
           child: Container(
             height: 150,
             width: 250,
-            foregroundDecoration: BoxDecoration(
-              color: isSelected ? null : Colors.grey,
-              backgroundBlendMode: isSelected ? null : BlendMode.saturation,
-            ),
-            decoration: new BoxDecoration(
-              border: new Border.all(
-                width: 1.5,
-                color: Colors.green,
+            decoration: BoxDecoration(
+              border: Border.all(
+                width: 2,
+                color: Colors.green
               ),
               color: Colors.green[50],
-              borderRadius: new BorderRadius.all(new Radius.circular(16.0)),
+              borderRadius: BorderRadius.all(Radius.circular(16))
+            ),
+            foregroundDecoration: BoxDecoration(
+              color: isSelected ? null : Colors.grey,
+              backgroundBlendMode: isSelected ? null : BlendMode.saturation
             ),
             child: Stack(
               children: <Widget>[
                 Padding(
-                  padding: const EdgeInsets.all(12.0),
-                  child: Text('English', style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600, color: Colors.green),),
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text('English', style: TextStyle(
+                    color: Colors.green,
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold
+                  ),),
                 ),
-                Align(
-                  alignment: AlignmentDirectional.bottomEnd,
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Image.asset(
-                      'assets/images/English.png',
-                      filterQuality: FilterQuality.high,
-                      width: 120,
-                    ),
-                  ),
-                )
+                Align(child: Image.asset('assets/images/English.png', width: 120,), alignment: AlignmentDirectional.bottomEnd,)
               ],
             ),
           ),
